@@ -1,31 +1,38 @@
 package com.example.travelsite.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.travelsite.entity.Flight;
+import com.example.travelsite.service.FlightService;
 
 @Controller
 public class FlightController {
 
-    @PostMapping("/searchFlights")
-    public String searchFlights(@RequestParam String destination, @RequestParam String date, Model model) {
-        // 簡易的にダミーのフライト情報を生成
-        List<String> flights = new ArrayList<>();
-        if (destination.equalsIgnoreCase("Tokyo")) {
-            flights.add("Tokyo Flight 101 - 10:00");
-            flights.add("Tokyo Flight 202 - 14:30");
-        } else {
-            flights.add("No flights available to " + destination);
-        }
+    private final FlightService flightService;
 
-        model.addAttribute("destination", destination);
-        model.addAttribute("date", date);
-        model.addAttribute("flights", flights);
+    @Autowired
+    public FlightController(FlightService flightService) {
+        this.flightService = flightService;
+    }
 
-        return "results"; // templates/results.html を表示
+    @GetMapping("/searchFlight")
+    public String showFlightSearchForm() {
+        return "searchFlight"; // HTMLファイル名に対応
+    }
+
+    @PostMapping("/searchFlight")
+    public String searchFlights(@RequestParam String departure,
+                                @RequestParam String destination,
+                                Model model) {
+        List<Flight> results = flightService.findByDepartureAndDestination(departure, destination);
+        model.addAttribute("flights", results);
+        return "resultFlight"; // HTMLファイル名に対応
     }
 }

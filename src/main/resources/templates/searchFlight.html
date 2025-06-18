@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>フライト検索</title>
+</head>
+<body>
+<h1>フライト検索フォーム</h1>
+<form method="post" th:action="@{/resultFlight}">
+    出発地: <input type="text" name="departure"><br>
+    目的地: <input type="text" name="destination"><br>
+    <button type="submit">検索</button>
+</form>
+</body>
+</html>

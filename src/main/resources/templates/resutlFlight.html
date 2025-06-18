@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>検索結果 - フライト</title>
+</head>
+<body>
+<h1>検索結果（フライト）</h1>
+
+<table border="1">
+    <tr>
+        <th>出発地</th>
+        <th>目的地</th>
+        <th>価格</th>
+        <th>出発日</th>
+    </tr>
+    <tr th:each="flight : ${flights}">
+        <td th:text="${flight.departure}"></td>
+        <td th:text="${flight.destination}"></td>
+        <td th:text="${flight.price}"></td>
+        <td th:text="${flight.date}"></td>
+    </tr>
+</table>
+
+<a href="/searchFlight">戻る</a>
+</body>
+</html>
