@@ -16,11 +16,17 @@
         </nav>
     </header>
 
-<h1>フライト検索フォーム</h1>
-<form method="post" th:action="@{/resultFlight}">
-    出発地: <input type="text" name="departure"><br>
-    目的地: <input type="text" name="destination"><br>
-    <button type="submit">検索</button>
-</form>
+	<div class="container">
+	    <h1>検索メニュー</h1>
+	
+	    <ul>
+	        <li><a th:href="@{/searchFlight}">フライト検索へ</a></li>
+	        <li><a th:href="@{/searchHotel}">ホテル検索へ</a></li>
+	    </ul>
+	</div>
+
+    <footer>
+        <p>&copy; 2025 My Travel Site. All rights reserved.</p>
+    </footer>
 </body>
 </html>

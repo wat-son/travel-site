@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>検索結果 - フライト</title>
+    <meta charset="UTF-8">
+    <title>フライト検索</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
 </head>
 <body>
+	<header>
+        <h2>🌍 My Travel Site</h2>
+        <nav>
+            <a th:href="top">ホーム</a> |
+            <a th:href="searchFlight">フライト</a> |
+            <a href="hotels.html">ホテル</a> |
+            <a href="signup.html">アカウント登録</a>
+        </nav>
+    </header>
+
 <h1>検索結果（フライト）</h1>
 
 <table border="1">

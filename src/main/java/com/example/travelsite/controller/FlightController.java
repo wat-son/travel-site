@@ -31,8 +31,13 @@ public class FlightController {
     public String searchFlights(@RequestParam String departure,
                                 @RequestParam String destination,
                                 Model model) {
-        List<Flight> results = flightService.findByDepartureAndDestination(departure, destination);
+        List<Flight> results = flightService.searchFlights(departure, destination);
         model.addAttribute("flights", results);
         return "resultFlight"; // HTMLファイル名に対応
+    }
+    
+    @GetMapping("/search-form")
+    public String showSearchForm() {
+        return "searchFlight"; // templates/searchFlight.html を指す
     }
 }

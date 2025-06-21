@@ -24,7 +24,7 @@ public class FlightService {
     }
 
     // 出発地と目的地で検索
-    public List<Flight> findByDepartureAndDestination(String departure, String destination) {
+    public List<Flight> searchFlights(String departure, String destination) {
         return flightRepository.findByDepartureAndDestination(departure, destination);
     }
 
