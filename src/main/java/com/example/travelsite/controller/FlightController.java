@@ -27,7 +27,7 @@ public class FlightController {
         return "searchFlight"; // HTMLファイル名に対応
     }
 
-    @PostMapping("/searchFlight")
+    @PostMapping("/resultFlight")
     public String searchFlights(@RequestParam String departure,
                                 @RequestParam String destination,
                                 Model model) {
@@ -40,4 +40,11 @@ public class FlightController {
     public String showSearchForm() {
         return "searchFlight"; // templates/searchFlight.html を指す
     }
+    
+    @GetMapping("/test")
+    public String testPage() {
+        return "test"; // templates/test.html を返す
+    }
+
+    
 }
