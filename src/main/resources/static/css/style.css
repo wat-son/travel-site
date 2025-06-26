@@ -20,6 +20,7 @@ body {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+/*    display: flex;*/
 }
 
 h1 {
@@ -120,12 +121,22 @@ footer {
     font-size: 14px;
 }
 
+.search-form {
+    background: gray;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
 /* 検索画面の入力欄 */
 .search-input {
+	border: 2px solid black !important;
     width: 100%;
     max-width: 400px;     /* 最大幅を設定 */
     padding: 8px;
     box-sizing: border-box; /* パディングを含めてサイズ調整 */
     font-size: 16px;
     margin-bottom: 10px;
+    text-align: center;
+    margin: 0 auto;
 }

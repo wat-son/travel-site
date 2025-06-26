@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "flights")
+@Table(name = "flight")
 public class Flight {
 
     @Id
@@ -20,6 +20,8 @@ public class Flight {
     private String departure;
     private String destination;
     private LocalDateTime departureTime;
+    private String arrivalTime;
+    private int price;
 
     // --- コンストラクタ・getter/setter ---
     public Flight() {}
@@ -59,4 +61,28 @@ public class Flight {
     public void setDepartureTime(LocalDateTime departureTime) {
         this.departureTime = departureTime;
     }
+
+	public String getArrivalTime() {
+		return arrivalTime;
+	}
+
+	public void setArrivalTime(String arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+//	public String getArrival() {
+//		return arrival;
+//	}
+//
+//	public void setArrival(String arrival) {
+//		this.arrival = arrival;
+//	}
 }

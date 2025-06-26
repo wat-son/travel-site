@@ -22,10 +22,12 @@ public class FlightController {
         this.flightService = flightService;
     }
 
-    @GetMapping("/searchFlight")
-    public String showFlightSearchForm() {
-        return "searchFlight"; // HTMLファイル名に対応
-    }
+//    @GetMapping("/searchFlight")
+//    public String showFlightSearchForm(Model model) {
+//        model.addAttribute("departures", flightService.getAllDepartures());
+//        model.addAttribute("destinations", flightService.getAllDestinations());
+//        return "searchFlight";
+//    }
 
     @PostMapping("/resultFlight")
     public String searchFlights(@RequestParam String departure,
@@ -46,5 +48,13 @@ public class FlightController {
         return "test"; // templates/test.html を返す
     }
 
+    @GetMapping("/searchFlight") //確認用
+    public String showFlightSearchForm(Model model) {
+        List<String> departures = flightService.getAllDepartures();
+        System.out.println("出発地一覧: " + departures);  // ← コンソールに出力
+        model.addAttribute("departures", departures);
+        model.addAttribute("destinations", flightService.getAllDestinations());
+        return "searchFlight";
+    }
     
 }

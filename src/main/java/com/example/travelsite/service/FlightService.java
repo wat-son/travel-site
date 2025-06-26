@@ -32,4 +32,14 @@ public class FlightService {
     public Flight saveFlight(Flight flight) {
         return flightRepository.save(flight);
     }
+    
+    //出発地を全て取得
+    public List<String> getAllDepartures() {
+        return flightRepository.findDistinctDepartures();
+    }
+
+    //目的地を全て取得
+    public List<String> getAllDestinations() {
+        return flightRepository.findDistinctDestinations();
+    }
 }
